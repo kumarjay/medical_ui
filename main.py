@@ -34,11 +34,11 @@ def appointment():
     doctor = request.form.get('doctor')
     department = request.form.get('department')
     message = request.form.get('message')
-    print('name is :...', name, ' ', date, ' ', department)
+    print('name is :.....', name, ' ', date, ' ', department, 'doct: ', doctor, ' finish !!!!!!!!!!!....')
 
-    status = send_mail(name, email, phone, date, doctor, department, message)
+    # status = send_mail(name, email, phone, date, doctor, department, message)
     # time.sleep(2)
-    # status =True
+    status =True
 
     if status == True:
         flash('You appointment is successfully booked !!!')
@@ -46,6 +46,21 @@ def appointment():
         flash('Sorry, There was some technical problem. Please try agian !!')
     return redirect(url_for('index'))
     # return render_template('index.html')
+
+
+@app.route('/send_message', methods=['GET', 'POST'])
+def send_message():
+    flash('Thanks for your input')
+    return redirect(url_for('index'))
+
+
+@app.route('/admin')
+def admin():
+    sale_report = [51, 40, 18, 51, 12, 82, 56]
+    revenue_report = [21, 32, 45, 32, 34, 52, 11]
+    customer_report = [15, 11, 32, 18, 49, 24, 71]
+    return render_template('/admin/index.html', sale_report= sale_report,
+                           revenue_report= revenue_report, customer_report= customer_report)
 
 
 if __name__ == '__main__':

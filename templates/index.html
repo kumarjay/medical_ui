@@ -125,62 +125,45 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 </div>
     {%endfor%}
-  </header><!-- End Header -->
+      </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <h1>Welcome to Medilab</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
-    </div>
-  </section><!-- End Hero -->
+      <!-- ======= Hero Section ======= -->
+      <section id="hero" class="d-flex align-items-center">
+        <div class="container">
+          <h1>Welcome to Medilab</h1>
+          <h2>We are team of talented designers making websites with Bootstrap</h2>
+          <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        </div>
+      </section><!-- End Hero -->
 
 
     {% for message in get_flashed_messages() %}
-<!--  <div class="alert alert-success">-->
-<!--  <strong>Success!</strong> Indicates a successful or positive action.-->
-<!--    <div class="alert-error">Error: {{ message }}</div>-->
-<!--</div>-->
-<!--<div class="alert alert-warning alert-dismissible fade show">-->
-<!--    <strong>Warning!</strong> There was a problem with your network connection.-->
-<!--    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
-<!--</div>-->
-<!--  <div class="alert alert-success alert-dismissible d-flex align-items-center fade show">-->
-<!--    <i class="bi-check-circle-fill"></i>-->
-<!--    <strong class="mx-2">Success!</strong> Your message has been sent successfully.-->
-<!--    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
-<!--</div>-->
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Notification..</h5>
+        <!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+        <!--          <span aria-hidden="true">&times;</span>-->
+        <!--        </button>-->
+              </div>
+              <div class="modal-body">
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Notification..</h5>
-<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--          <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
-      </div>
-      <div class="modal-body">
-
-        <div class="alert alert-danger" role="alert">
-          <i class="bi-droplet-half"></i>
-<!--          <i class="bi-check-circle-fill"></i>-->
-          Your Appointment is scheduled !
+                <div class="alert alert-danger" role="alert">
+                  <i class="bi-droplet-half"></i>
+        <!--          <i class="bi-check-circle-fill"></i>-->
+                  {{message}}
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        <!--        <button type="button" class="btn btn-primary">Save changes</button>-->
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-<!--        <button type="button" class="btn btn-primary">Save changes</button>-->
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 
     {% endfor %}
 
@@ -423,7 +406,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
               <select name="department" id="department" class="form-select">
                 <option value="">Select Department</option>
                 {%  for dept in department %}
-                  <option value="Department 1">{{dept}}</option>
+                  <option value="{{dept}}">{{dept}}</option>
                 {% endfor %}
               </select>
               <div class="validate"></div>
@@ -432,7 +415,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
               <select name="doctor" id="doctor" class="form-select">
                 <option value="">Select Doctor</option>
                   {%  for doct in doctors %}
-                    <option value="Department 1">{{doct}}</option>
+                    <option value="{{doct}}">{{doct}}</option>
                   {% endfor %}
               </select>
               <div class="validate"></div>
@@ -863,7 +846,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="/send_message" method="post" role="form" class="appointment-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name1" placeholder="Your Name" required>
@@ -878,12 +861,12 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+<!--              <div class="my-3">-->
+<!--                <div class="loading">Loading</div>-->
+<!--                <div class="error-message"></div>-->
+<!--                <div class="sent-message">Your message has been sent. Thank you!</div>-->
+<!--              </div>-->
+              <div style="line-height: 50px;" class="text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
             </form>
 
           </div>
