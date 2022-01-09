@@ -36,9 +36,9 @@ def appointment():
     message = request.form.get('message')
     print('name is :...', name, ' ', date, ' ', department)
 
-    # status = send_mail(name, email, phone, date, doctor, department, message)
-    time.sleep(2)
-    status =True
+    status = send_mail(name, email, phone, date, doctor, department, message)
+    # time.sleep(2)
+    # status =True
 
     if status == True:
         flash('You appointment is successfully booked !!!')

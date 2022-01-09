@@ -12,7 +12,7 @@ id= cfg['email']['id']
 password= cfg['email']['password']
 
 
-def send_mail(name, email, phone, date, doctor, department, message):
+def send_mail(name, email, phone, date, doctor=None, department=None, message=None):
     # contacts= ['amrita@mirrag.com', 'abhishek@mirrag.com', 'prasanna@mirrag.com', 'kumarjay2107@gmail.com', 'jay.kumar@mirrag.com']
     # contacts= ['jay.kumar@mirrag.com']
 
