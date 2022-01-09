@@ -21,7 +21,7 @@ def send_mail(name, email, phone, date, doctor=None, department=None, message=No
     msg['From']= id
     msg['To']= ', '.join(contacts)
     # msg['To']= 'kumarjay2107@gmail.com'
-    msg.set_content(f'One patient has booked an appointment for {date}, \nDoctor : {doctor}, Department : {department}. \nPatient Details : '
+    msg.set_content(f'One patient has booked an appointment for {date}, \nDoctor : {doctor}, Department : {department}. \nPatient Details -- '
                     f'\nName : {name} \nEmail : {email} \nPhone : {phone} \nMessage: {message}')
 
     # with open(image_path, 'rb') as f:
